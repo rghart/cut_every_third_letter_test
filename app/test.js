@@ -8,16 +8,16 @@ const { cutEveryThirdLetterFromString } = helpers;
 app.use(json());
 
 app.post("/test", (request, response) => {
-  const { string_to_cut } = request.body;
+  const { string_to_cut: stringToCut } = request.body;
 
-  if (!string_to_cut || typeof string_to_cut !== "string") {
+  if (!stringToCut || typeof stringToCut !== "string") {
     return response.status(400).json({
       status: "error",
       message: "Invalid request - required format: '{'string_to_cut': 'your string to cut'}'"
     });
   }
 
-  let returnString = cutEveryThirdLetterFromString(string_to_cut);
+  let returnString = cutEveryThirdLetterFromString(stringToCut);
 
   const responseToSend = {"return_string": returnString};
 
