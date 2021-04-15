@@ -1,16 +1,9 @@
 const cutEveryThirdLetterFromString = (string) => {
-  // Removing spaces to only cut letters
-  string = string.replace(/\s+/g, "");
-  let stringPosition = -1;
-  let newString = "";
-  const loopAmount = Math.floor(string.length / 3);
-
-  for (let i = 0; i < loopAmount; i++) {
-    newString += string.slice(stringPosition + 3, stringPosition + 4);
-    stringPosition += 3;
-  }
-
-  return newString;
+  return string
+    .replace(/\s+/g, '') //Removing whitespace
+    .split('')
+    .filter((_c, i) => (i + 1) % 3 === 0)
+    .join('');
 }
 
-module.exports = { cutEveryThirdLetterFromString }
+module.exports = { cutEveryThirdLetterFromString };

@@ -1,11 +1,9 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const { cutEveryThirdLetterFromString } = require("./helpers")
+const { cutEveryThirdLetterFromString } = require("./helpers");
 
 const app = express();
-const PORT = 8080;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.post("/test", (request, response) => {
   const { string_to_cut } = request.body;
@@ -33,4 +31,8 @@ app.all("*", (req, res, next) => {
   });
 });
 
-app.listen(PORT, () => console.log("Express server currently running on port ${PORT}"));
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
