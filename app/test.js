@@ -1,9 +1,11 @@
-const express = require("express");
-const { cutEveryThirdLetterFromString } = require("./helpers");
+import express from "express";
+import helpers from "./helpers.js";
 
 const app = express();
+const { json } = express;
+const { cutEveryThirdLetterFromString } = helpers;
 
-app.use(express.json());
+app.use(json());
 
 app.post("/test", (request, response) => {
   const { string_to_cut } = request.body;
