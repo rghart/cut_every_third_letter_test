@@ -6,4 +6,4 @@ const cutEveryThirdLetterFromString = (string) => {
     .join('');
 }
 
-module.exports = { cutEveryThirdLetterFromString };
+export default { cutEveryThirdLetterFromString };
