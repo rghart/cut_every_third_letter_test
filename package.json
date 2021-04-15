@@ -1,15 +1,19 @@
 {
-  "name": "Test",
+  "name": "test",
   "version": "1.0.0",
   "description": "",
-  "main": "cut_every_third_letter.js",
+  "main": "test.js",
   "scripts": {
+    "start": "node app/test.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ryan Hart",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "12.18.3"
   }
 }
