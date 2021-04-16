@@ -21,9 +21,8 @@ app.post("/test", (request, response) => {
 
   const responseToSend = {"return_string": returnString};
 
-  response.json(responseToSend);
   response.statusCode = 201;
-  response.end();
+  response.end(JSON.stringify(responseToSend) + '\n');
 });
 
 app.all("*", (req, res, next) => {
@@ -35,6 +34,6 @@ app.all("*", (req, res, next) => {
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 8000;
+ port = 8000;
 }
 app.listen(port);
