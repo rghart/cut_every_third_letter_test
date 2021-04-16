@@ -21,9 +21,8 @@ app.post("/test", (request, response) => {
 
   const responseToSend = {"return_string": returnString};
 
-  response.json(responseToSend);
   response.statusCode = 201;
-  response.end();
+  response.end(JSON.stringify(responseToSend) + '\n');
 });
 
 app.all("*", (req, res, next) => {
